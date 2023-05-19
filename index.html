@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        color: #232528;
+      }
+      body {
+        background: #eee;
+      }
+      #regForm {
+        background-color: #ffffff;
+        margin: 0px auto;
+        border-radius: 10px;
+      }
+      .form-tab {
+        background: none;
+        display: none;
+      }
+      .index {
+        text-align: center;
+        color: #feebe6;
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 150%;
+        height: 20px;
+        width: 20px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;
+      }
+      .index.active {
+        background-color: #fba089;
+        opacity: 1;
+      }
+      .index.finish {
+        background-color: #4caf50;
+      }
+      .bi-check {
+        font-size: 12px;
+      }
+      .all-steps {
+        justify-content: end;
+        text-align: end;
+      }
+      .hidden {
+        display: none;
+      }
+      p {
+        color: #232528;
+      }
+      .button {
+        flex: 1 0 auto;
+      }
+      .form-title {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        margin-bottom: 0.5rem;
+        line-height: 150%;
+      }
+      .form-text-custom {
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 1rem;
+        line-height: 150%;
+      }
+      .form-header {
+        display: flex;
+        justify-content: space-between;
+      }
+      .form-label {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <div id="form-page" style="display: flex; justify-content: space-around">
+      <div style="display: flex">
+        <div class="container" style="width: 500px; height: 567px">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div>
+              <form id="regForm">
+                <div class="form-header mb-3">
+                  <a
+                    id="prevBtn"
+                    class="text-decoration-none"
+                    style="color: #266ed3"
+                    href="#"
+                    onclick="nextPrev(-1)"
+                  >
+                    <i
+                      class="bi bi-arrow-left"
+                      style="color: #0d6efd; vertical-align: middle"
+                    ></i>
+                    <span
+                      id="prevBtnText"
+                      style="color: #0d6efd; vertical-align: middle"
+                    ></span>
+                  </a>
+                  <div class="all-steps" id="all-steps">
+                    <span class="index">1</span>
+                    <span class="index">2</span>
+                    <span class="index">3</span>
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">Tell us about the intervention</p>
+                  <p class="form-text-custom">some text</p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="ProjectName">Project name</label>
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ProjectName"
+                      placeholder="Project name"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="InterventionType">Intervention Type</label>
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+                    <select
+                      class="form-select"
+                      id="InterventionType"
+                      aria-label="Intervention Type"
+                    >
+                      <option selected></option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <div class="">
+                    <div class="form-label">
+                      <label for="TargetAudience">Target audience</label>
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+                    <select
+                      class="form-select"
+                      id="TargetAudience"
+                      aria-label="Target audience"
+                    >
+                      <option selected></option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">Tell us about participants and costs</p>
+                  <p class="form-text-custom">some text</p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="NumberOfParticipants"
+                        >Number of participants</label
+                      >
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="NumberOfParticipants"
+                      placeholder="Number of participants"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="Total-cost-of-intervention"
+                        >Total cost of intervention (DKK)</label
+                      >
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Total-cost-of-intervention"
+                      placeholder="Total cost of intervention (DKK)"
+                    />
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">
+                    Do you know the expected or actual impact of your loneliness
+                    intervention?
+                  </p>
+                  <p class="form-text-custom">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="EffectSize">Effect size (UCLA-3 scale)</label>
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="EffectSize"
+                      placeholder="Effect size (UCLA-3 scale)"
+                      value="0"
+                    />
+                  </div>
+                </div>
+                <div class="form-tab">
+                  <p class="form-title">Here are the results!</p>
+                  <p class="form-text-custom">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="OrganisationName">Organisation name</label>
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="OrganisationName"
+                      placeholder="Organisation name"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="OrganisationType">Organisation type</label>
+                      <i
+                        class="bi bi-info-circle"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        title="Tooltip on top"
+                      ></i>
+                    </div>
+                    <select
+                      class="form-select mb-3"
+                      id="OrganisationType"
+                      aria-label="Organisation type"
+                    >
+                      <option selected></option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <div class="mb-3">
+                      <div class="form-label">
+                        <label for="Email">Email addresse</label>
+                        <i
+                          class="bi bi-info-circle"
+                          data-toggle="tooltip"
+                          data-placement="top"
+                          title="Tooltip on top"
+                        ></i>
+                      </div>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="Email"
+                        placeholder="name@example.com"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex" id="buttons" class="mt-4">
+                  <div
+                    style="
+                      border: 1px solid #528de0;
+                      border-radius: 100px;
+                      text-align: center;
+                    "
+                    class="button mb-1 me-1 hidden"
+                    id="idkBtn"
+                    onclick="nextPrev(1)"
+                  >
+                    <span style="color: #528de0; vertical-align: middle">
+                      I don't know it
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    id="nextBtn"
+                    class="btn btn-primary button"
+                    style="
+                      background: #266ed3;
+                      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+                      border-radius: 100px;
+                    "
+                    onclick="nextPrev(1)"
+                  >
+                    Næste
+                  </button>
+                </div>
+                <div id="message" class="hidden">
+                  <p class="form-title">Check your inbox!</p>
+                  <p class="form-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                  </p>
+                  <button
+                    onclick="window.location.href='https://ensomhedital.webflow.io/'"
+                    class="btn btn-primary button"
+                    style="
+                      background: #266ed3;
+                      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+                      border-radius: 100px;
+                    "
+                  >
+                    Back to the website
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="./Template.png" id="template" class="hidden" />
+    </div>
+    <script>
+      const url =
+        "https://awrbc34buh.execute-api.eu-west-2.amazonaws.com/Prod/api/report?";
+      var currentTab = 0;
+      function showTab(e) {
+        var t = document.getElementsByClassName("form-tab");
+        (t[e].style.display = "block"),
+          0 == e
+            ? (document.getElementById("prevBtnText").innerText = "Exit")
+            : (document.getElementById("prevBtnText").innerText = "Tilbage"),
+          e == t.length - 1
+            ? (document.getElementById("nextBtn").innerHTML = "Submit")
+            : (document.getElementById("nextBtn").innerHTML = "N\xe6ste"),
+          fixStepIndicator(e);
+      }
+      function submit(form) {
+        const projectName = document.getElementById("ProjectName");
+        const interventionType = document.getElementById("InterventionType");
+        const numberOfParticipants = document.getElementById(
+          "NumberOfParticipants"
+        );
+        const totalCostOfIntervention = document.getElementById(
+          "Total-cost-of-intervention"
+        );
+        const effectSize = document.getElementById("EffectSize");
+        const organisationName = document.getElementById("OrganisationName");
+        const organisationType = document.getElementById("OrganisationType");
+        const email = document.getElementById("Email");
+        const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}`;
+        fetch("POST", request);
+      }
+      function nextPrev(e) {
+        var t = document.getElementsByClassName("form-tab");
+        if (1 == e && !validateForm())
+          return alert("du skal udfylde alle felter"), !1;
+        (t[currentTab].style.display = "none"),
+          (currentTab += e),
+          currentTab >= t.length &&
+            ((document.getElementById("all-steps").style.display = "none"),
+            (document.getElementById("buttons").style.display = "none"),
+            (document.getElementById("prevBtn").style.display = "none"),
+            (document.getElementById("message").style.display = "flex"),
+            (document.getElementById("message").style.flexDirection = "column"),
+            submit(document.forms)),
+          currentTab == 2
+            ? document.getElementById("idkBtn").classList.remove("hidden")
+            : document.getElementById("idkBtn").classList.add("hidden");
+        currentTab == 3
+          ? document.getElementById("template").classList.remove("hidden")
+          : document.getElementById("template").classList.add("hidden");
+        if (currentTab < t.length) showTab(currentTab);
+      }
+      function validateForm() {
+        var e,
+          t,
+          n,
+          a = !0;
+        if (currentTab >= 3) return !0;
+        for (
+          n = 0,
+            t = (e = document.getElementsByClassName("form-tab"))[
+              currentTab
+            ].getElementsByTagName("input");
+          n < t.length;
+          n++
+        )
+          "" == t[n].value && ((t[n].className += " invalid"), (a = !1));
+        return a;
+      }
+      function fixStepIndicator(e) {
+        var t,
+          n = document.getElementsByClassName("index");
+        if (e < 3) {
+          for (t = 0; t < n.length; t++)
+            n[t].className = n[t].className.replace(" active", "");
+          n[e].className += " active";
+        }
+      }
+      document.addEventListener("DOMContentLoaded", function (e) {
+        showTab(currentTab);
+      });
+      document.addEventListener("submit", function (e) {
+        e.preventDefault();
+        document.getElementById("form-page").classList.add("hidden");
+        document.getElementById("message").classList.remove("hidden");
+      });
+    </script>
+    <script type="text/javascript">
+      function sendHeight() {
+        if (parent.postMessage) {
+          // replace #wrapper with element that contains
+          // actual page content
+          var height = document.getElementById("wrapper").offsetHeight;
+          parent.postMessage(height, "*");
+        }
+      }
+
+      // Create browser compatible event handler.
+      var eventMethod = window.addEventListener
+        ? "addEventListener"
+        : "attachEvent";
+      var eventer = window[eventMethod];
+      var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+      // Listen for a message from the iframe.
+      eventer(
+        messageEvent,
+        function (e) {
+          if (isNaN(e.data)) return;
+
+          sendHeight();
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
