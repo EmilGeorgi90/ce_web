@@ -433,6 +433,9 @@
         fetch("POST", request);
       }
       function nextPrev(e) {
+        if(e == -1 && currentTab == 0) {
+          window.parent.location.href = "https://ensomhedital.webflow.io/";
+        }
         var t = document.getElementsByClassName("form-tab");
         if (1 == e && !validateForm())
           return alert("du skal udfylde alle felter"), !1;
