@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -25,11 +29,11 @@
     />
     <style>
       i {
-        color: #266ED3;
+        color: #266ed3;
       }
       * {
         color: #232528;
-        font-family: 'Lato', sans-serif;
+        font-family: "Lato", sans-serif;
         font-style: normal;
       }
       body {
@@ -398,12 +402,12 @@
           </div>
         </div>
       </div>
-      <img
+      <!-- <img
         src="./Group 257.png"
         id="template"
         class="hidden"
         style="max-height: 700px"
-      />
+      /> -->
     </div>
     <script>
       const url =
@@ -437,7 +441,7 @@
         fetch("POST", request);
       }
       function nextPrev(e) {
-        if(e == -1 && currentTab == 0) {
+        if (e == -1 && currentTab == 0) {
           window.parent.location.href = "https://ensomhedital.webflow.io/";
         }
         var t = document.getElementsByClassName("form-tab");
@@ -456,8 +460,8 @@
             ? document.getElementById("idkBtn").classList.remove("hidden")
             : document.getElementById("idkBtn").classList.add("hidden");
         currentTab == 3
-          ? (document.getElementById("template").classList.remove("hidden"), document.getElementById("all-steps").style.display = "none")
-          : (document.getElementById("template").classList.add("hidden"), document.getElementById("all-steps").style.display = "flex");
+          ? (document.getElementById("all-steps").style.display = "none")
+          : (document.getElementById("all-steps").style.display = "flex");
         if (currentTab < t.length) showTab(currentTab);
       }
       function validateForm() {
