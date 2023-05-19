@@ -24,6 +24,9 @@
       rel="stylesheet"
     />
     <style>
+      i {
+        color: #266ED3;
+      }
       * {
         color: #232528;
         font-family: 'Lato', sans-serif;
@@ -453,8 +456,8 @@
             ? document.getElementById("idkBtn").classList.remove("hidden")
             : document.getElementById("idkBtn").classList.add("hidden");
         currentTab == 3
-          ? document.getElementById("template").classList.remove("hidden")
-          : document.getElementById("template").classList.add("hidden");
+          ? (document.getElementById("template").classList.remove("hidden"), document.getElementById("all-steps").style.display = "none")
+          : (document.getElementById("template").classList.add("hidden"), document.getElementById("all-steps").style.display = "flex");
         if (currentTab < t.length) showTab(currentTab);
       }
       function validateForm() {
