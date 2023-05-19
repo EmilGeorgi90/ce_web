@@ -25,6 +25,8 @@
     <style>
       * {
         color: #232528;
+        font-family: "Lato";
+        font-style: normal;
       }
       body {
       }
@@ -335,6 +337,9 @@
                       border: 1px solid #528de0;
                       border-radius: 100px;
                       text-align: center;
+                      height: 38px;
+                      margin: 0;
+                      width: min-content;
                     "
                     class="button mb-1 me-1 hidden"
                     id="idkBtn"
@@ -352,6 +357,8 @@
                       background: #266ed3;
                       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
                       border-radius: 100px;
+                      height: 38px;
+                      width: min-content;
                     "
                     onclick="nextPrev(1)"
                   >
@@ -386,7 +393,12 @@
           </div>
         </div>
       </div>
-      <img src="./Template.png" id="template" class="hidden" style="max-height: 700px;" />
+      <img
+        src="./Group 257.png"
+        id="template"
+        class="hidden"
+        style="max-height: 700px"
+      />
     </div>
     <script>
       const url =
@@ -476,8 +488,8 @@
       });
     </script>
     <script>
-      document.getElementById("goback").addEventListener("click", function(e) {
-        window.parent.location.href="https://ensomhedital.webflow.io/"
+      document.getElementById("goback").addEventListener("click", function (e) {
+        window.parent.location.href = "https://ensomhedital.webflow.io/";
       });
     </script>
   </body>
