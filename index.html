@@ -85,6 +85,12 @@
         color: #232528;
       }
       .button {
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        border-radius: 100px;
+        height: 38px;
+        width: min-content;
         flex: 1 0 auto;
       }
       .form-title {
@@ -343,39 +349,26 @@
                   </div>
                 </div>
                 <div style="display: flex; margin-top: auto" id="buttons">
-                  <div
+                  <button
+                    type="button"
                     style="
                       border: 1px solid #528de0;
-                      border-radius: 100px;
-                      text-align: center;
-                      height: 38px;
-                      margin: 0;
-                      width: min-content;
-                      line-height: 32px;
+                      color: #528de0;
+                      margin-right: 16px;
                     "
-                    class="button mb-1 me-1 hidden"
+                    class="button hidden btn"
                     id="idkBtn"
                     onclick="nextPrev(1)"
                   >
-                    <span style="color: #528de0; vertical-align: middle">
-                      I don't know it
-                    </span>
-                  </div>
+                    I don't know it
+                  </button>
                   <button
                     type="button"
                     id="nextBtn"
-                    class="btn btn-primary button"
-                    style="
-                      background: #266ed3;
-                      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-                      border-radius: 100px;
-                      height: 38px;
-                      width: min-content;
-                    "
+                    class="button btn"
+                    style="background: #266ed3; color: #ffffff"
                     onclick="nextPrev(1)"
-                  >
-                    Næste
-                  </button>
+                  ></button>
                 </div>
                 <div id="message" class="hidden">
                   <p class="form-title">Check your inbox!</p>
