@@ -49,8 +49,14 @@ i {
 .hidden {
   display: none;
 }
+.custom-tooltip {
+  --bs-tooltip-bg: #08172b;
+}
 p {
   color: #232528;
+}
+.btn {
+  padding: 0;
 }
 .button {
   text-align: center;
