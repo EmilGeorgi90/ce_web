@@ -68,6 +68,7 @@
                     <div class="form-label">
                       <label for="ProjectName">Project name</label>
                       <button
+                      onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
                         tabindex="-1"
                         class="btn"
                         type="button"
@@ -372,6 +373,9 @@
       const tooltipList = [...tooltipTriggerList].map(
         (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
       );
+      function openKnowledgeBase(url) {
+        window.open(url, "_blank");
+      }
     </script>
     <script>
       const url =
