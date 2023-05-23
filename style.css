@@ -60,7 +60,6 @@ p {
   height: 43px;
   width: min-content;
   flex: 1 0 auto;
-  padding: 12px 32px;
 }
 .form-title {
   font-family: "Lato";
