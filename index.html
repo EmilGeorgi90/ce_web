@@ -35,8 +35,10 @@
           <div class="row d-flex justify-content-center" style="height: 100%">
             <div>
               <form
+                class="needs-validation"
                 id="regForm"
                 style="display: flex; flex-direction: column; height: 100%"
+                novalidate
               >
                 <div class="form-header mb-3">
                   <a
@@ -68,7 +70,7 @@
                     <div class="form-label">
                       <label for="ProjectName">Project name</label>
                       <button
-                      onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
+                        onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
                         tabindex="-1"
                         class="btn"
                         type="button"
@@ -108,9 +110,14 @@
                       aria-label="Intervention Type"
                     >
                       <option selected></option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option value="1">Social network</option>
+                      <option value="2">Social support</option>
+                      <option value="3">
+                        Social and emotional skills training
+                      </option>
+                      <option value="4">Psychological treatment</option>
+                      <option value="5">Unspecified</option>
+                      <option value="6">Own specification</option>
                     </select>
                   </div>
                   <div class="">
@@ -134,9 +141,10 @@
                       aria-label="Target audience"
                     >
                       <option selected></option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option value="1">General Population</option>
+                      <option value="2">Youth 0-15</option>
+                      <option value="3">Working age16-64</option>
+                      <option value="4">Population 65+</option>
                     </select>
                   </div>
                 </div>
@@ -162,7 +170,8 @@
                     </div>
 
                     <input
-                      type="text"
+                      type="number"
+                      min="1"
                       class="form-control"
                       id="NumberOfParticipants"
                       placeholder="Number of participants"
@@ -186,7 +195,8 @@
                       </button>
                     </div>
                     <input
-                      type="text"
+                      type="number"
+                      min="1"
                       class="form-control"
                       id="Total-cost-of-intervention"
                       placeholder="Total cost of intervention (DKK)"
@@ -219,12 +229,18 @@
                       </button>
                     </div>
                     <input
-                      type="text"
+                      type="number"
+                      min="0.01"
+                      step="0.01"
                       class="form-control"
                       id="EffectSize"
                       placeholder="Effect size (UCLA-3 scale)"
-                      value="0"
+                      value="0.01"
+                      onchange="validate()"
                     />
+                    <div class="invalid-feedback" id="EffectSize-invalid">
+                      værdien kan ikke være højere end 3
+                    </div>
                   </div>
                 </div>
                 <div class="form-tab">
@@ -277,9 +293,10 @@
                       aria-label="Organisation type"
                     >
                       <option selected></option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option value="1">Kommune</option>
+                      <option value="2">Region</option>
+                      <option value="3">Statslig institution</option>
+                      <option value="4">Social indsats</option>
                     </select>
                     <div class="mb-3">
                       <div class="form-label">
@@ -366,6 +383,18 @@
         style="max-height: 700px"
       /> -->
     </div>
+    <script>
+      function validate() {
+        const value = document.getElementById("EffectSize").value;
+        if (value > 3) {
+          document.getElementById("buttons").style.display = "none";
+          document.getElementById("EffectSize-invalid").style.display = "block";
+        } else {
+          document.getElementById("buttons").style.display = "flex";
+          document.getElementById("EffectSize-invalid").style.display = "none";
+        }
+      }
+    </script>
     <script>
       const tooltipTriggerList = document.querySelectorAll(
         '[data-bs-toggle="tooltip"]'
