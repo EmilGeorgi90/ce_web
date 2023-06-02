@@ -407,8 +407,7 @@
       }
     </script>
     <script>
-      const url =
-        "https://localhost:61650/api/report?";
+      const url = "https://localhost:61650/api/report?";
       var currentTab = 0;
       function showTab(e) {
         var t = document.getElementsByClassName("form-tab");
@@ -422,22 +421,26 @@
           fixStepIndicator(e);
       }
       function submit(form) {
-        const projectName = document.getElementById("ProjectName");
-        const interventionType = document.getElementById("InterventionType");
+        const projectName = document.getElementById("ProjectName").value;
+        const interventionType =
+          document.getElementById("InterventionType").value;
         const numberOfParticipants = document.getElementById(
           "NumberOfParticipants"
-        );
+        ).value;
         const totalCostOfIntervention = document.getElementById(
           "Total-cost-of-intervention"
-        );
-        const effectSize = document.getElementById("EffectSize");
-        const organisationName = document.getElementById("OrganisationName");
-        const organisationType = document.getElementById("OrganisationType");
-        const email = document.getElementById("Email");
+        ).value;
+        const effectSize = document.getElementById("EffectSize").value;
+        const organisationName =
+          document.getElementById("OrganisationName").value;
+        const organisationType =
+          document.getElementById("OrganisationType").value;
+        const email = document.getElementById("Email").value;
+        console.log(effectSize);
         const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
-        console.log(request)
+        console.log(request);
         fetch(request, {
-          method: "POST"
+          method: "POST",
         });
       }
       function nextPrev(e) {
