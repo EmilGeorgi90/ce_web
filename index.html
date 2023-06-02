@@ -408,7 +408,7 @@
     </script>
     <script>
       const url =
-        "https://awrbc34buh.execute-api.eu-west-2.amazonaws.com/Prod/api/report?";
+        "https://localhost:61650/api/report?";
       var currentTab = 0;
       function showTab(e) {
         var t = document.getElementsByClassName("form-tab");
@@ -434,7 +434,8 @@
         const organisationName = document.getElementById("OrganisationName");
         const organisationType = document.getElementById("OrganisationType");
         const email = document.getElementById("Email");
-        const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}`;
+        const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
+        console.log(request)
         fetch("POST", request);
       }
       function nextPrev(e) {
