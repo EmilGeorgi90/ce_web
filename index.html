@@ -453,7 +453,7 @@
         });
         $("#prevBtn").click(() => {
           if (tabindex == 0) {
-            window.parent.location = "https://ensomhedital.webflow.io/";
+            window.parent.location = "https://ensomhedital.webflow.io/home";
           }
           if (tabindex < faneElements.length)
             faneElements[tabindex].style.display = "none";
@@ -503,15 +503,17 @@
           console.log(effectSize);
           const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
           fetch(request, {
-            method: "POST",
+            method: "GET",
             mode: "no-cors"
+          }).then((res) => {
+            console.log(res)
           });
         }
       });
     </script>
     <script>
       document.getElementById("goback").addEventListener("click", function (e) {
-        window.parent.location.href = "https://ensomhedital.webflow.io/";
+        window.parent.location.href = "https://ensomhedital.webflow.io/home";
       });
     </script>
   </body>
