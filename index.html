@@ -46,7 +46,6 @@
                     class="text-decoration-none"
                     style="color: #266ed3"
                     href="#"
-                    onclick="nextPrev(-1)"
                   >
                     <i
                       class="bi bi-arrow-left"
@@ -84,7 +83,7 @@
                     </div>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control field"
                       id="ProjectName"
                       placeholder="Project name"
                     />
@@ -105,7 +104,7 @@
                       </button>
                     </div>
                     <select
-                      class="form-select"
+                      class="form-select field"
                       id="InterventionType"
                       aria-label="Intervention Type"
                     >
@@ -136,7 +135,7 @@
                       </button>
                     </div>
                     <select
-                      class="form-select"
+                      class="form-select field"
                       id="TargetAudience"
                       aria-label="Target audience"
                     >
@@ -171,8 +170,9 @@
 
                     <input
                       type="number"
+                      value="100"
                       min="1"
-                      class="form-control"
+                      class="form-control field"
                       id="NumberOfParticipants"
                       placeholder="Number of participants"
                     />
@@ -196,8 +196,9 @@
                     </div>
                     <input
                       type="number"
+                      value="1000000"
                       min="1"
-                      class="form-control"
+                      class="form-control field"
                       id="Total-cost-of-intervention"
                       placeholder="Total cost of intervention (DKK)"
                     />
@@ -232,14 +233,14 @@
                       type="number"
                       min="0.01"
                       step="0.01"
-                      class="form-control"
+                      class="form-control field"
                       id="EffectSize"
                       placeholder="Effect size (UCLA-3 scale)"
                       value="0.01"
                       onchange="validate()"
                     />
                     <div class="invalid-feedback" id="EffectSize-invalid">
-                      værdien kan ikke være højere end 3
+                      Værdien skal være mellem 0.01 og 3
                     </div>
                   </div>
                 </div>
@@ -267,7 +268,7 @@
                     </div>
                     <input
                       type="text"
-                      class="form-control"
+                      class="form-control field"
                       id="OrganisationName"
                       placeholder="Organisation name"
                     />
@@ -288,7 +289,7 @@
                       </button>
                     </div>
                     <select
-                      class="form-select mb-3"
+                      class="form-select mb-3 field"
                       id="OrganisationType"
                       aria-label="Organisation type"
                     >
@@ -315,7 +316,7 @@
                       </div>
                       <input
                         type="email"
-                        class="form-control"
+                        class="form-control field"
                         id="Email"
                         placeholder="name@example.com"
                       />
@@ -330,19 +331,19 @@
                       color: #528de0;
                       margin-right: 16px;
                     "
-                    class="button hidden btn"
+                    class="button hidden btn nextBtn"
                     id="idkBtn"
-                    onclick="nextPrev(1)"
                   >
                     I don't know it
                   </button>
                   <button
                     type="button"
                     id="nextBtn"
-                    class="button btn"
+                    class="button btn nextBtn"
                     style="background: #266ed3; color: #ffffff"
-                    onclick="nextPrev(1)"
-                  ></button>
+                  >
+                    Next
+                  </button>
                 </div>
                 <div id="message" class="hidden">
                   <p class="form-title">Check your inbox!</p>
@@ -386,7 +387,7 @@
     <script>
       function validate() {
         const value = document.getElementById("EffectSize").value;
-        if (value > 3) {
+        if (value > 3 || value == 0) {
           document.getElementById("buttons").style.display = "none";
           document.getElementById("EffectSize-invalid").style.display = "block";
         } else {
@@ -407,98 +408,99 @@
       }
     </script>
     <script>
-      const url = "http://ensomhedital.eu-central-1.elasticbeanstalk.com/api/report?";
-      var currentTab = 0;
-      function showTab(e) {
-        var t = document.getElementsByClassName("form-tab");
-        (t[e].style.display = "block"),
-          0 == e
-            ? (document.getElementById("prevBtnText").innerText = "Exit")
-            : (document.getElementById("prevBtnText").innerText = "Tilbage"),
-          e == t.length - 1
-            ? (document.getElementById("nextBtn").innerHTML = "Submit")
-            : (document.getElementById("nextBtn").innerHTML = "N\xe6ste"),
-          fixStepIndicator(e);
-      }
-      function submit(form) {
-        const projectName = document.getElementById("ProjectName").value;
-        const interventionType =
-          document.getElementById("InterventionType").value;
-        const numberOfParticipants = document.getElementById(
-          "NumberOfParticipants"
-        ).value;
-        const totalCostOfIntervention = document.getElementById(
-          "Total-cost-of-intervention"
-        ).value;
-        const effectSize = document.getElementById("EffectSize").value;
-        const organisationName =
-          document.getElementById("OrganisationName").value;
-        const organisationType =
-          document.getElementById("OrganisationType").value;
-        const email = document.getElementById("Email").value;
-        console.log(effectSize);
-        const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
-        fetch(request, {
-          method: "POST",
+      $(document).ready(() => {
+        const url = "https://api.ensomhedital.dk/api/report?";
+        let tabindex = 0;
+        const steps = $(".all-steps");
+        const faneElements = $(".form-tab");
+        faneElements[0].style.display = "block";
+        steps.children()[tabindex].classList.add("active");
+        $(".nextBtn").click(() => {
+          if (tabindex == 2) {
+            $("#nextBtn").text("Submit");
+          }
+          if (validate(faneElements[tabindex])) {
+            faneElements[tabindex].style.display = "none";
+            if (faneElements.length <= tabindex + 1) {
+              tabindex++;
+              $(steps).hide();
+              $("#nextBtn").hide();
+              $("#message").show();
+              submit();
+            } else {
+              steps.children()[tabindex].classList.remove("active");
+              tabindex += 1;
+              if (tabindex == 2) {
+                $("#idkBtn").show();
+              } else {
+                $("#idkBtn").hide();
+              }
+              if (tabindex >= steps.children().length) {
+                steps.children().addClass("active");
+              } else {
+                steps.children()[tabindex].classList.add("active");
+              }
+              faneElements[tabindex].style.display = "block";
+            }
+          } else {
+            alert("you need to put in all infomations");
+          }
         });
-      }
-      function nextPrev(e) {
-        if (e == -1 && currentTab == 0) {
-          window.parent.location.href = "https://ensomhedital.webflow.io/";
+        $("#prevBtn").click(() => {
+          if (tabindex == 0) {
+            window.parent.location = "https://ensomhedital.webflow.io/";
+          }
+          if (tabindex < faneElements.length)
+            faneElements[tabindex].style.display = "none";
+          steps.children().removeClass("active");
+          $("#nextBtn").show();
+          $("#message").hide();
+          tabindex -= 1;
+          if (tabindex == 2) {
+            $("#idkBtn").show();
+          } else {
+            $("#idkBtn").hide();
+          }
+          steps.show();
+          if (tabindex >= steps.children().length) {
+            steps.children().addClass("active");
+          } else {
+            steps.children()[tabindex].classList.add("active");
+          }
+          $("#nextBtn").text("Next");
+          faneElements[tabindex].style.display = "block";
+        });
+        const validate = (currentTab) => {
+          const inputFields = $(currentTab).find(".field");
+          for (let i = 0; i < inputFields.length; i++) {
+            if (inputFields[i].value == "") {
+              return false;
+            }
+          }
+          return true;
+        };
+        function submit(form) {
+          const projectName = document.getElementById("ProjectName").value;
+          const interventionType =
+            document.getElementById("InterventionType").value;
+          const numberOfParticipants = document.getElementById(
+            "NumberOfParticipants"
+          ).value;
+          const totalCostOfIntervention = document.getElementById(
+            "Total-cost-of-intervention"
+          ).value;
+          const effectSize = document.getElementById("EffectSize").value;
+          const organisationName =
+            document.getElementById("OrganisationName").value;
+          const organisationType =
+            document.getElementById("OrganisationType").value;
+          const email = document.getElementById("Email").value;
+          console.log(effectSize);
+          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
+          fetch(request, {
+            method: "POST",
+          });
         }
-        var t = document.getElementsByClassName("form-tab");
-        if (1 == e && !validateForm())
-          return alert("du skal udfylde alle felter"), !1;
-        (t[currentTab].style.display = "none"),
-          (currentTab += e),
-          currentTab >= t.length &&
-            ((document.getElementById("all-steps").style.display = "none"),
-            (document.getElementById("buttons").style.display = "none"),
-            (document.getElementById("prevBtn").style.display = "none"),
-            (document.getElementById("message").style.display = "flex"),
-            (document.getElementById("message").style.flexDirection = "column"),
-            submit(document.forms)),
-          currentTab == 2
-            ? document.getElementById("idkBtn").classList.remove("hidden")
-            : document.getElementById("idkBtn").classList.add("hidden");
-        currentTab == 3
-          ? (document.getElementById("all-steps").style.display = "none")
-          : (document.getElementById("all-steps").style.display = "flex");
-        if (currentTab < t.length) showTab(currentTab);
-      }
-      function validateForm() {
-        var e,
-          t,
-          n,
-          a = !0;
-        if (currentTab >= 3) return !0;
-        for (
-          n = 0,
-            t = (e = document.getElementsByClassName("form-tab"))[
-              currentTab
-            ].getElementsByTagName("input");
-          n < t.length;
-          n++
-        )
-          "" == t[n].value && ((t[n].className += " invalid"), (a = !1));
-        return a;
-      }
-      function fixStepIndicator(e) {
-        var t,
-          n = document.getElementsByClassName("index");
-        if (e < 3) {
-          for (t = 0; t < n.length; t++)
-            n[t].className = n[t].className.replace(" active", "");
-          n[e].className += " active";
-        }
-      }
-      document.addEventListener("DOMContentLoaded", function (e) {
-        showTab(currentTab);
-      });
-      document.addEventListener("submit", function (e) {
-        e.preventDefault();
-        document.getElementById("form-page").classList.add("hidden");
-        document.getElementById("message").classList.remove("hidden");
       });
     </script>
     <script>
