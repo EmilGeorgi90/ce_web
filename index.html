@@ -499,6 +499,7 @@
           const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
           fetch(request, {
             method: "POST",
+            mode: "no-cors"
           });
         }
       });
