@@ -424,7 +424,7 @@
             if (faneElements.length <= tabindex + 1) {
               tabindex++;
               $(steps).hide();
-              $("#nextBtn").hide();
+              $("#buttons").hide();
               $("#message").show();
               submit();
             } else {
@@ -453,7 +453,7 @@
           if (tabindex < faneElements.length)
             faneElements[tabindex].style.display = "none";
           steps.children().removeClass("active");
-          $("#nextBtn").show();
+          $("#buttons").show();
           $("#message").hide();
           tabindex -= 1;
           if (tabindex == 2) {
