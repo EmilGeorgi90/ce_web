@@ -50,7 +50,12 @@ i {
   display: none;
 }
 .custom-tooltip {
+  max-width: 300px;
   --bs-tooltip-bg: #08172b;
+}
+.tooltip-inner{
+  max-width: 300px;
+  margin: 0;
 }
 p {
   color: #232528;

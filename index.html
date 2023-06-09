@@ -64,7 +64,6 @@
                 </div>
                 <div class="form-tab">
                   <p class="form-title">Tell us about the intervention</p>
-                  <p class="form-text-custom">some text</p>
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="ProjectName">Project name</label>
@@ -75,7 +74,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat mauris, egestas non pharetra et, scelerisque sed purus. Nulla facilisi. Nulla justo tellus, suscipit sit amet vestibulum a, blandit nec magna. Sed in mattis mi. In hac habitasse platea dictumst. Aenean pretium, ante nec facilisis pharetra, velit tortor feugiat ex, a dapibus urna ex vitae tellus. Suspendisse potenti. Fusce nec euismod arcu, id tempus dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla egestas sapien mauris, in vehicula lorem dapibus quis. Fusce malesuada porttitor orci, nec tempus sem pharetra quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec sed magna arcu. Nulla rhoncus diam ac aliquet luctus. Nullam nec ornare eros, ut vulputate mauris."
+                        data-bs-title="Please specify the name of your project or intervention."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -97,7 +96,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat mauris, egestas non pharetra et, scelerisque sed purus. Nulla facilisi. Nulla justo tellus, suscipit sit amet vestibulum a, blandit nec magna. Sed in mattis mi. In hac habitasse platea dictumst. Aenean pretium, ante nec facilisis pharetra, velit tortor feugiat ex, a dapibus urna ex vitae tellus. Suspendisse potenti. Fusce nec euismod arcu, id tempus dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla egestas sapien mauris, in vehicula lorem dapibus quis. Fusce malesuada porttitor orci, nec tempus sem pharetra quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec sed magna arcu. Nulla rhoncus diam ac aliquet luctus. Nullam nec ornare eros, ut vulputate mauris."
+                        data-bs-title="Please choose one of the provided intervention types that best reflects your intervention. If none of these intervention types reflects your intervention or if your intervention is a mix of various intervention types, please choose “Other intervention type”."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -115,7 +114,7 @@
                         Social and emotional skills training
                       </option>
                       <option value="4">Psychological treatment</option>
-                      <option value="5">Unspecified</option>
+                      <option value="5">Other intervention type</option>
                       <option value="6">Own specification</option>
                     </select>
                   </div>
@@ -128,7 +127,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi erat mauris, egestas non pharetra et, scelerisque sed purus. Nulla facilisi. Nulla justo tellus, suscipit sit amet vestibulum a, blandit nec magna. Sed in mattis mi. In hac habitasse platea dictumst. Aenean pretium, ante nec facilisis pharetra, velit tortor feugiat ex, a dapibus urna ex vitae tellus. Suspendisse potenti. Fusce nec euismod arcu, id tempus dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla egestas sapien mauris, in vehicula lorem dapibus quis. Fusce malesuada porttitor orci, nec tempus sem pharetra quis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec sed magna arcu. Nulla rhoncus diam ac aliquet luctus. Nullam nec ornare eros, ut vulputate mauris."
+                        data-bs-title="Please choose the age group that best reflects the demographics of the participants."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -141,15 +140,14 @@
                     >
                       <option selected></option>
                       <option value="1">General Population</option>
-                      <option value="2">Youth 0-15</option>
-                      <option value="3">Working age16-64</option>
-                      <option value="4">Population 65+</option>
+                      <option value="2">Youth, 0-15</option>
+                      <option value="3">Working age, 16-64</option>
+                      <option value="4">Elderly, 65+</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-tab">
                   <p class="form-title">Tell us about participants and costs</p>
-                  <p class="form-text-custom">some text</p>
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="NumberOfParticipants"
@@ -161,7 +159,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Insert tooltip"
+                        data-bs-title="Number of participants expected to complete the intervention/that have completed the intervention."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -188,7 +186,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Insert tooltip"
+                        data-bs-title="In DKK, in total across all participants."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -206,24 +204,38 @@
                 </div>
                 <div class="form-tab">
                   <p class="form-title">
-                    Do you know the expected or actual impact of your loneliness
-                    intervention?
+                    (Optional) Do you know the expected or actual impact of your
+                    loneliness intervention?
                   </p>
                   <p class="form-text-custom">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    Please specify input only if you have reliable data, e.g.
+                    based on before-after survey evidence and/or comparisons
+                    with a control group. You can specify the impact of your
+                    intervention in terms of average reduction on the 3-item
+                    UCLA scale, which ranges from 3 to 9 (where 9 is most
+                    lonely).  It is not required to have this information to
+                    proceed with the tool. You may proceed without it and we
+                    therefore encourage you to stick to the intervention types
+                    listed before if applicable and read the precautions in the
+                    information icon.
                   </p>
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="EffectSize">Effect size (UCLA-3 scale)</label>
                       <button
+                        onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
                         tabindex="-1"
                         class="btn"
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Insert tooltip"
+                        data-bs-title="Be cautious if your effect exceeds 1 point on the 3-item UCLA scale. Evidence suggests that effect sizes of more than 1 are unlikely. The effect size must not exceed 3 points on the 3-item UCLA scale as this corresponds to lifting all participants out of loneliness.
+
+                        For guidance on best practices for measuring an intervention’s effectiveness, please refer to the pdf guide.
+                        
+                        If you do not know how to specify the expected or actual impact of the intervention on the 3-item UCLA scale, but on some other scale (e.g., on the 20-item UCLA scale, or in terms of proportion of participants who experience a material reduction in loneliness), please reach out to us via the contact page and we would be happy to help converting your input data.
+                        
+                        Click the icon to read more"
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -245,26 +257,16 @@
                   </div>
                 </div>
                 <div class="form-tab">
-                  <p class="form-title">Here are the results!</p>
+                  <p class="form-title">
+                    Where do you want us to send the report?
+                  </p>
                   <p class="form-text-custom">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
+                    Please fill out the information below to receive the full
+                    report.
                   </p>
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="OrganisationName">Organisation name</label>
-                      <button
-                        tabindex="-1"
-                        class="btn"
-                        type="button"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        data-bs-title="Insert tooltip"
-                        data-bs-custom-class="custom-tooltip"
-                      >
-                        <i class="bi bi-info-circle"></i>
-                      </button>
                     </div>
                     <input
                       type="text"
@@ -276,17 +278,6 @@
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="OrganisationType">Organisation type</label>
-                      <button
-                        tabindex="-1"
-                        class="btn"
-                        type="button"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        data-bs-title="Insert tooltip"
-                        data-bs-custom-class="custom-tooltip"
-                      >
-                        <i class="bi bi-info-circle"></i>
-                      </button>
                     </div>
                     <select
                       class="form-select mb-3 field"
@@ -294,38 +285,41 @@
                       aria-label="Organisation type"
                     >
                       <option selected></option>
-                      <option value="1">Kommune</option>
-                      <option value="2">Region</option>
-                      <option value="3">Statslig institution</option>
-                      <option value="4">Social indsats</option>
+                      <option value="1">Non-profit organisation</option>
+                      <option value="2">For-profit organisation</option>
+                      <option value="3">Social enterprise</option>
+                      <option value="4">Municipality</option>
                       <option value="5">Fond</option>
-                      <option value="6">Privat virksomhed</option>
-                      <option value="7">Privat person</option>
-                      <option value="8">NGO</option>
-                      <option value="9">Andet</option>
+                      <option value="9">Other</option>
                     </select>
-                    <div class="mb-3">
-                      <div class="form-label">
-                        <label for="Email">Email addresse</label>
-                        <button
-                          tabindex="-1"
-                          class="btn"
-                          type="button"
-                          data-bs-toggle="tooltip"
-                          data-bs-placement="top"
-                          data-bs-title="Insert tooltip"
-                          data-bs-custom-class="custom-tooltip"
-                        >
-                          <i class="bi bi-info-circle"></i>
-                        </button>
-                      </div>
-                      <input
-                        type="email"
-                        class="form-control field"
-                        id="Email"
-                        placeholder="name@example.com"
-                      />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="Email">Your name</label>
                     </div>
+                    <input
+                      type="text"
+                      class="form-control field"
+                      id="Name"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <div class="form-label">
+                      <label for="Email">Email addresse</label>
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control field"
+                      id="Email"
+                      placeholder="name@example.com"
+                    />
+                  </div>
+                  <div>
+                    <input type="checkbox" name="Concent" id="Concent" />
+                    <label for="Concent"
+                      >I give permission to be updated with newsletters.</label
+                    >
                   </div>
                 </div>
                 <div style="display: flex; margin-top: auto" id="buttons">
@@ -353,13 +347,11 @@
                 <div id="message" class="hidden">
                   <p class="form-title">Check your inbox!</p>
                   <p class="form-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    Thanks for using the Loneliness Impact Calculator. Your
+                    results will be shared with you via email within a few
+                    minutes.  If you haven’t received an email from us within a
+                    few moments, please check your spam folder or reach out to
+                    us via the contact form.
                   </p>
                   <button
                     id="goback"
@@ -504,9 +496,9 @@
           const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
           fetch(request, {
             method: "GET",
-            mode: "no-cors"
+            mode: "no-cors",
           }).then((res) => {
-            console.log(res)
+            console.log(res);
           });
         }
       });
