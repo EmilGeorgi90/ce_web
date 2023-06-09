@@ -412,9 +412,9 @@
         const faneElements = $(".form-tab");
         faneElements[0].style.display = "block";
         steps.children()[tabindex].classList.add("active");
-        $('#regForm').submit(function (evt) {
+        $("#regForm").submit(function (evt) {
           evt.preventDefault();
-      });
+        });
         $(".nextBtn").click(() => {
           if (tabindex == 2) {
             $("#nextBtn").text("Submit");
@@ -424,7 +424,7 @@
             if (faneElements.length <= tabindex + 1) {
               tabindex++;
               $(steps).hide();
-              $('#prevBtn').hide();
+              $("#prevBtn").hide();
               $("#buttons").hide();
               $("#message").show();
               submit();
@@ -475,6 +475,9 @@
           const inputFields = $(currentTab).find(".field");
           for (let i = 0; i < inputFields.length; i++) {
             if (inputFields[i].value == "") {
+              return false;
+            }
+            if (inputFields[i].type == "number" && inputFields[i].value == 0) {
               return false;
             }
           }
