@@ -500,8 +500,9 @@
           const organisationType =
             document.getElementById("OrganisationType").value;
           const email = document.getElementById("Email").value;
-          console.log(effectSize);
-          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}`;
+          const lang = window.parent.localStorage.getItem("wglang");
+          console.log(lang)
+          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang}`;
           fetch(request, {
             method: "GET",
             mode: "no-cors",
