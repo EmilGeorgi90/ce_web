@@ -381,6 +381,12 @@
         style="max-height: 700px"
       /> -->
     </div>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_38defff07058f54fb11d70dbde2e1f514'
+        });
+    </script>
     <script>
       function validate() {
         const value = document.getElementById("EffectSize").value;
@@ -522,8 +528,7 @@
           const organisationType =
             document.getElementById("OrganisationType").value;
           const email = document.getElementById("Email").value;
-          const lang = window.localStorage.getItem("wglang");
-          console.log(lang);
+          const lang = Weglot.getCurrentLang()
           const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang}`;
           fetch(request, {
             method: "GET",
