@@ -374,6 +374,9 @@
           </div>
         </div>
       </div>
+      <div class="lang hidden">
+
+      </div>
       <!-- <img
         src="./Group 257.png"
         id="template"
@@ -384,7 +387,24 @@
     <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
     <script>
         Weglot.initialize({
-            api_key: 'wg_38defff07058f54fb11d70dbde2e1f514'
+            api_key: 'wg_38defff07058f54fb11d70dbde2e1f514',
+            switchers: [
+            {
+                style: {
+                    full_name: false,
+                    with_name: false,
+                    is_dropdown: false,
+                    with_flags: false,
+                    flag_type: "circle",
+                    invert_flags: false
+                },
+                // Move switcher somewhere in the page
+                location: {
+                    target: ".lang",
+                    sibling: null
+                }
+            }
+        ],
         });
     </script>
     <script>
