@@ -26,6 +26,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+
     <title>Document</title>
   </head>
   <body>
@@ -89,7 +90,7 @@
                   </div>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="InterventionType">Intervention Type</label>
+                      <label for="InterventionType">Type of intervention</label>
                       <button
                         tabindex="-1"
                         class="btn"
@@ -115,12 +116,13 @@
                       </option>
                       <option value="4">Psychological treatment</option>
                       <option value="5">Other intervention type</option>
-                      <option value="6">Own specification</option>
                     </select>
                   </div>
                   <div class="">
                     <div class="form-label">
-                      <label for="TargetAudience">Target audience</label>
+                      <label for="TargetAudience"
+                        >Age group of participants</label
+                      >
                       <button
                         tabindex="-1"
                         class="btn"
@@ -168,7 +170,6 @@
 
                     <input
                       type="number"
-                      value="0"
                       min="1"
                       class="form-control field"
                       id="NumberOfParticipants"
@@ -178,7 +179,7 @@
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="Total-cost-of-intervention"
-                        >Total cost of intervention (DKK)</label
+                        >Estimated cost of intervention</label
                       >
                       <button
                         tabindex="-1"
@@ -193,12 +194,18 @@
                       </button>
                     </div>
                     <input
-                      type="number"
-                      value="0"
+                      type="text"
                       min="1"
-                      class="form-control field"
+                      class="form-control field number-separator"
+                      id=""
+                      placeholder="Estimated cost of intervention"
+                    />
+                    <input
+                      type="number"
+                      min="1"
+                      class="form-control field number-separator hidden"
                       id="Total-cost-of-intervention"
-                      placeholder="Total cost of intervention (DKK)"
+                      placeholder="Estimated cost of intervention"
                     />
                   </div>
                 </div>
@@ -248,7 +255,7 @@
                       class="form-control field"
                       id="EffectSize"
                       placeholder="Effect size (UCLA-3 scale)"
-                      value="0"
+                      value=""
                       onchange="validate()"
                     />
                     <div class="invalid-feedback" id="EffectSize-invalid">
@@ -306,7 +313,7 @@
                   </div>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="Email">Email addresse</label>
+                      <label for="Email">Your email</label>
                     </div>
                     <input
                       type="email"
@@ -333,7 +340,7 @@
                     class="button hidden btn nextBtn"
                     id="idkBtn"
                   >
-                    I don't know it
+                    EffectSize
                   </button>
                   <button
                     type="button"
@@ -374,9 +381,7 @@
           </div>
         </div>
       </div>
-      <div class="lang hidden">
-
-      </div>
+      <div class="lang hidden"></div>
       <!-- <img
         src="./Group 257.png"
         id="template"
@@ -384,28 +389,31 @@
         style="max-height: 700px"
       /> -->
     </div>
-    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.weglot.com/weglot.min.js"
+    ></script>
     <script>
-        Weglot.initialize({
-            api_key: 'wg_38defff07058f54fb11d70dbde2e1f514',
-            switchers: [
-            {
-                style: {
-                    full_name: false,
-                    with_name: false,
-                    is_dropdown: false,
-                    with_flags: false,
-                    flag_type: "circle",
-                    invert_flags: false
-                },
-                // Move switcher somewhere in the page
-                location: {
-                    target: ".lang",
-                    sibling: null
-                }
-            }
+      Weglot.initialize({
+        api_key: "wg_38defff07058f54fb11d70dbde2e1f514",
+        switchers: [
+          {
+            style: {
+              full_name: false,
+              with_name: false,
+              is_dropdown: false,
+              with_flags: false,
+              flag_type: "circle",
+              invert_flags: false,
+            },
+            // Move switcher somewhere in the page
+            location: {
+              target: ".lang",
+              sibling: null,
+            },
+          },
         ],
-        });
+      });
     </script>
     <script>
       function validate() {
@@ -523,6 +531,12 @@
         const validate = (currentTab) => {
           const inputFields = $(currentTab).find(".field");
           for (let i = 0; i < inputFields.length; i++) {
+            if (inputFields[i].id == "" || inputFields[i].id == undefined) {
+              break;
+            }
+            if (inputFields[i].id == "EffectSize") {
+              break;
+            }
             if (inputFields[i].value == "") {
               return { success: false, message: "values can't be empty" };
             }
@@ -548,7 +562,7 @@
           const organisationType =
             document.getElementById("OrganisationType").value;
           const email = document.getElementById("Email").value;
-          const lang = Weglot.getCurrentLang()
+          const lang = Weglot.getCurrentLang();
           const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectSize=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang}`;
           fetch(request, {
             method: "GET",
@@ -562,6 +576,14 @@
     <script>
       document.getElementById("goback").addEventListener("click", function (e) {
         window.parent.location.href = "https://ensomhedital.webflow.io/";
+      });
+    </script>
+    <script src="easy-number-separator.js"></script>
+    <script>
+      easyNumberSeparator({
+        selector: ".number-separator",
+        separator: ".",
+        resultInput: "#Total-cost-of-intervention",
       });
     </script>
   </body>
