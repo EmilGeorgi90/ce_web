@@ -26,7 +26,29 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-
+    <!-- Start Weglot translation code -->
+    <link rel="alternate" hreflang="da" href="https://www.ensomhedital.dk" />
+    <link rel="alternate" hreflang="en" href="https://en.ensomhedital.dk" />
+    <script
+      type="text/javascript"
+      src="https://cdn.weglot.com/weglot.min.js"
+    ></script>
+    <script>
+      Weglot.initialize({
+        api_key: "wg_6f74280d69dcab196fa640c26b6c77368",
+        switchers: [
+          {
+            style: {},
+            // Move switcher somewhere in the page
+            location: {
+              target: ".lang",
+              sibling: null,
+            },
+          },
+        ],
+      });
+    </script>
+    <!-- End Weglot translation code -->
     <title>Document</title>
   </head>
   <body>
@@ -341,7 +363,7 @@
                     class="button hidden btn nextBtn"
                     id="idkBtn"
                   >
-                  Spring over
+                    Spring over
                   </button>
                   <button
                     type="button"
@@ -390,27 +412,6 @@
         style="max-height: 700px"
       /> -->
     </div>
-    <script
-      type="text/javascript"
-      src="https://cdn.weglot.com/weglot.min.js"
-    ></script>
-    <script>
-      Weglot.initialize({
-        api_key: "wg_38defff07058f54fb11d70dbde2e1f514",
-        switchers: [
-          {
-            style: {
-
-            },
-            // Move switcher somewhere in the page
-            location: {
-              target: ".lang",
-              sibling: null,
-            },
-          },
-        ],
-      });
-    </script>
     <script>
       function validate() {
         const value = document.getElementById("EffectSize").value;
