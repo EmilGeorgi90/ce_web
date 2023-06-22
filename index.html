@@ -554,14 +554,14 @@
             "Total-cost-of-intervention"
           ).value;
           let effectSize = document.getElementById("EffectSize").value;
-          if(effectSize == null) effectSize = 1;
+          if(effectSize == undefined || effectSize == '' || effectSize == null) effectSize = 1;
           const organisationName =
             document.getElementById("OrganisationName").value;
           const organisationType =
             document.getElementById("OrganisationType").value;
           const email = document.getElementById("Email").value;
           const lang = Weglot.getCurrentLang();
-          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectScale=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang}`;
+          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectScale=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang.toUpperCase()}`;
           fetch(request, {
             method: "GET",
             mode: "no-cors",
