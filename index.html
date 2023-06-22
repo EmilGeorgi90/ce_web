@@ -64,10 +64,10 @@
                   </div>
                 </div>
                 <div class="form-tab">
-                  <p class="form-title">Tell us about the intervention</p>
+                  <p class="form-title">Fortæl os om interventionen</p>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="ProjectName">Project name</label>
+                      <label for="ProjectName">Projektnavn</label>
                       <button
                         onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
                         tabindex="-1"
@@ -75,7 +75,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Please specify the name of your project or intervention."
+                        data-bs-title="Angiv navnet på dit projekt eller din intervention."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -85,19 +85,19 @@
                       type="text"
                       class="form-control field"
                       id="ProjectName"
-                      placeholder="Project name"
+                      placeholder="Projektnavn"
                     />
                   </div>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="InterventionType">Type of intervention</label>
+                      <label for="InterventionType">Interventionstype</label>
                       <button
                         tabindex="-1"
                         class="btn"
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Please choose one of the provided intervention types that best reflects your intervention. If none of these intervention types reflects your intervention or if your intervention is a mix of various intervention types, please choose “Other intervention type”."
+                        data-bs-title="Vælg venligst en af de medfølgende interventionstyper, der bedst afspejler din intervention. Hvis ingen af disse interventionstyper afspejler din intervention, eller hvis din intervention er en blanding af forskellige interventionstyper, skal du vælge 'Anden interventionstype'."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -109,19 +109,22 @@
                       aria-label="Intervention Type"
                     >
                       <option selected></option>
-                      <option value="1">Social network</option>
-                      <option value="2">Social support</option>
+                      <option value="1">Socialt netværk</option>
+                      <option value="2">Social støtte</option>
                       <option value="3">
-                        Social and emotional skills training
+                        Træning i sociale og følelsesmæssige færdigheder
                       </option>
-                      <option value="4">Psychological treatment</option>
-                      <option value="5">Other intervention type</option>
+                      <option value="4">Psykologisk behandling</option>
+                      <option value="5">
+                        Anden interventionstype (forudsætter gennemsnitlig
+                        interventionseffektivitet)
+                      </option>
                     </select>
                   </div>
                   <div class="">
                     <div class="form-label">
                       <label for="TargetAudience"
-                        >Age group of participants</label
+                        >Aldersgruppe af deltagere</label
                       >
                       <button
                         tabindex="-1"
@@ -129,7 +132,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Please choose the age group that best reflects the demographics of the participants."
+                        data-bs-title="Vælg den aldersgruppe, der bedst afspejler deltagernes demografi."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -141,27 +144,27 @@
                       aria-label="Target audience"
                     >
                       <option selected></option>
-                      <option value="1">General Population</option>
-                      <option value="2">Youth, 0-15</option>
-                      <option value="3">Working age, 16-64</option>
-                      <option value="4">Elderly, 65+</option>
+                      <option value="1">Generel befolkning</option>
+                      <option value="2">Ungdom, 0-15</option>
+                      <option value="3">Arbejdsdygtig alder, 16-64</option>
+                      <option value="4">Ældre, 65+</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-tab">
-                  <p class="form-title">Tell us about participants and costs</p>
+                  <p class="form-title">
+                    Fortæl os om deltagere og omkostninger
+                  </p>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="NumberOfParticipants"
-                        >Number of participants</label
-                      >
+                      <label for="NumberOfParticipants">Antal deltagere</label>
                       <button
                         tabindex="-1"
                         class="btn"
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Number of participants expected to complete the intervention/that have completed the intervention."
+                        data-bs-title="Antal deltagere, der forventes at fuldføre interventionen, eller som har fuldført interventionen."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -173,13 +176,13 @@
                       min="1"
                       class="form-control field"
                       id="NumberOfParticipants"
-                      placeholder="Number of participants"
+                      placeholder="Anslåede interventionsomkostninger"
                     />
                   </div>
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="Total-cost-of-intervention"
-                        >Estimated cost of intervention</label
+                        >Anslåede interventionsomkostninger</label
                       >
                       <button
                         tabindex="-1"
@@ -187,7 +190,7 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="In DKK, in total across all participants."
+                        data-bs-title="I DKK i alt på tværs af alle deltagere."
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -198,37 +201,39 @@
                       min="1"
                       class="form-control field number-separator"
                       id=""
-                      placeholder="Estimated cost of intervention"
+                      placeholder="Anslåede interventionsomkostninger"
                     />
                     <input
                       type="number"
                       min="1"
                       class="form-control field number-separator hidden"
                       id="Total-cost-of-intervention"
-                      placeholder="Estimated cost of intervention"
+                      placeholder="Anslåede interventionsomkostninger"
                     />
                   </div>
                 </div>
                 <div class="form-tab">
                   <p class="form-title">
-                    (Optional) Do you know the expected or actual impact of your
-                    loneliness intervention?
+                    (Valgfrit) Kender du den forventede eller faktiske virkning
+                    af din ensomhedsintervention?
                   </p>
                   <p class="form-text-custom">
-                    Please specify input only if you have reliable data, e.g.
-                    based on before-after survey evidence and/or comparisons
-                    with a control group. You can specify the impact of your
-                    intervention in terms of average reduction on the 3-item
-                    UCLA scale, which ranges from 3 to 9 (where 9 is most
-                    lonely).  It is not required to have this information to
-                    proceed with the tool. You may proceed without it and we
-                    therefore encourage you to stick to the intervention types
-                    listed before if applicable and read the precautions in the
-                    information icon.
+                    Angiv kun input, hvis du har pålidelige data, f.eks. baseret
+                    på før-efter-undersøgelsesbevis og/eller sammenligninger med
+                    en kontrolgruppe. Du kan angive virkningen af din
+                    intervention i form af gennemsnitlig reduktion på
+                    UCLA-skalaen, der spænder fra 3 til 9 (hvor 9 er mest
+                    ensom). Det er ikke nødvendigt at have disse oplysninger for
+                    at fortsætte med værktøjet. Du kan fortsætte uden det, og vi
+                    opfordrer dig derfor til at holde dig til de
+                    interventionstyper, der er angivet før, hvis det er
+                    relevant, og læse forholdsreglerne i informationsikonet.
                   </p>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="EffectSize">Effect size (UCLA-3 scale)</label>
+                      <label for="EffectSize"
+                        >Effektstørrelse (UCLA-3-skala)</label
+                      >
                       <button
                         onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
                         tabindex="-1"
@@ -236,13 +241,11 @@
                         type="button"
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
-                        data-bs-title="Be cautious if your effect exceeds 1 point on the 3-item UCLA scale. Evidence suggests that effect sizes of more than 1 are unlikely. The effect size must not exceed 3 points on the 3-item UCLA scale as this corresponds to lifting all participants out of loneliness.
-
-                        For guidance on best practices for measuring an intervention’s effectiveness, please refer to the pdf guide.
-                        
-                        If you do not know how to specify the expected or actual impact of the intervention on the 3-item UCLA scale, but on some other scale (e.g., on the 20-item UCLA scale, or in terms of proportion of participants who experience a material reduction in loneliness), please reach out to us via the contact page and we would be happy to help converting your input data.
-                        
-                        Click the icon to read more"
+                        data-bs-title="Vær forsigtig, hvis din effekt overstiger 1 point på UCLA-skalaen. Beviser tyder på, at effektstørrelser på mere end 1 er usandsynlige. Effektstørrelsen må ikke overstige 3 point på UCLA-skalaen, da dette svarer til at løfte alle deltagere ud af ensomhed.
+                        For vejledning om bedste praksis for måling af et interventions effektivitet henvises til pdf-guiden.
+                        Hvis du ikke ved, hvordan du angiver den forventede eller faktiske indvirkning af interventionen på UCLA-skalaen, men på en anden skala (f.eks. på UCLA-skalaen eller med hensyn til andelen af deltagere, der oplever en væsentlig reduktion i ensomhed), bedes du kontakte os via 'kontaktsiden', og vi vil gerne hjælpe med at konvertere dine inputdata.
+                        Klik på ikonet for at læse mere
+                        "
                         data-bs-custom-class="custom-tooltip"
                       >
                         <i class="bi bi-info-circle"></i>
@@ -254,7 +257,7 @@
                       step="0.01"
                       class="form-control field"
                       id="EffectSize"
-                      placeholder="Effect size (UCLA-3 scale)"
+                      placeholder="Effektstørrelse (UCLA-3-skala)"
                       value=""
                       onchange="validate()"
                     />
@@ -264,27 +267,25 @@
                   </div>
                 </div>
                 <div class="form-tab">
-                  <p class="form-title">
-                    Where do you want us to send the report?
-                  </p>
+                  <p class="form-title">Hvor skal vi sende rapporten hen?</p>
                   <p class="form-text-custom">
-                    Please fill out the information below to receive the full
-                    report.
+                    Udfyld venligst nedenstående oplysninger for at modtage den
+                    fulde rapport.
                   </p>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="OrganisationName">Organisation name</label>
+                      <label for="OrganisationName">Organisationsnavn</label>
                     </div>
                     <input
                       type="text"
                       class="form-control field"
                       id="OrganisationName"
-                      placeholder="Organisation name"
+                      placeholder="Organisationsnavn"
                     />
                   </div>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="OrganisationType">Organisation type</label>
+                      <label for="OrganisationType">Organisationstype</label>
                     </div>
                     <select
                       class="form-select mb-3 field"
@@ -292,40 +293,40 @@
                       aria-label="Organisation type"
                     >
                       <option selected></option>
-                      <option value="1">Non-profit organisation</option>
-                      <option value="2">For-profit organisation</option>
-                      <option value="3">Social enterprise</option>
-                      <option value="4">Municipality</option>
-                      <option value="5">Fond</option>
-                      <option value="9">Other</option>
+                      <option value="1">Almennyttig organisation</option>
+                      <option value="2">Erhvervsdrivende Organisation</option>
+                      <option value="3">Social virksomhed</option>
+                      <option value="4">Kommune</option>
+                      <option value="5">Andet</option>
                     </select>
                   </div>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="Email">Your name</label>
+                      <label for="Name">Dit navn</label>
                     </div>
                     <input
                       type="text"
                       class="form-control field"
                       id="Name"
-                      placeholder="Your name"
+                      placeholder="Dit navn"
                     />
                   </div>
                   <div class="mb-3">
                     <div class="form-label">
-                      <label for="Email">Your email</label>
+                      <label for="Email">Din email</label>
                     </div>
                     <input
                       type="email"
                       class="form-control field"
                       id="Email"
-                      placeholder="name@example.com"
+                      placeholder="navn@eksempel.com"
                     />
                   </div>
                   <div>
                     <input type="checkbox" name="Concent" id="Concent" />
                     <label for="Concent"
-                      >I give permission to be updated with newsletters.</label
+                      >Jeg giver tilladelse til at blive opdateret med
+                      nyhedsbreve.</label
                     >
                   </div>
                 </div>
@@ -340,7 +341,7 @@
                     class="button hidden btn nextBtn"
                     id="idkBtn"
                   >
-                    Skip this step
+                  Spring over
                   </button>
                   <button
                     type="button"
@@ -348,17 +349,17 @@
                     class="button btn nextBtn"
                     style="background: #266ed3; color: #ffffff"
                   >
-                    Next
+                    Næste
                   </button>
                 </div>
                 <div id="message" class="hidden">
-                  <p class="form-title">Check your inbox!</p>
+                  <p class="form-title">Tjek din indbakke!</p>
                   <p class="form-text">
-                    Thanks for using the Loneliness Impact Calculator. Your
-                    results will be shared with you via email within a few
-                    minutes.  If you haven’t received an email from us within a
-                    few moments, please check your spam folder or reach out to
-                    us via the contact form.
+                    Tak, fordi du bruger Ensomhedsberegneren. Dine resultater
+                    vil blive delt med dig via e-mail inden for få minutter.
+                    Hvis du ikke har modtaget en e-mail fra os inden for et
+                    øjeblik, bedes du tjekke din spam-mappe eller kontakte os
+                    via kontaktformularen.
                   </p>
                   <button
                     id="goback"
@@ -373,7 +374,7 @@
                       line-height: 19px;
                     "
                   >
-                    Back to the website
+                    Tilbage til hjemmeside
                   </button>
                 </div>
               </form>
