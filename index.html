@@ -137,7 +137,7 @@
                         Træning i sociale og følelsesmæssige færdigheder
                       </option>
                       <option value="4">Psykologisk behandling</option>
-                      <option value="5">
+                      <option value="6">
                         Anden interventionstype (anvender gennemsnitlig
                         effektstørrelse blandt interventionstyperne)
                       </option>
@@ -234,28 +234,27 @@
                 </div>
                 <div class="form-tab">
                   <p class="form-title">
-                    (Valgfrit) Kender du den forventede eller faktiske virkning
-                    af din ensomhedsintervention?
+                    (Valgfrit) Kender du den forventede eller faktiske effekt af
+                    din ensomhedsintervention?
                   </p>
                   <p class="form-text-custom">
-                    Angiv kun input, hvis du har pålidelige data, f.eks. baseret
-                    på før-efter- målinger og/eller sammenligninger med en
-                    kontrolgruppe. Du kan angive virkningen af din intervention
-                    i form af gennemsnitlig reduktion på UCLA-3 skalaen, der
-                    spænder fra 3 til 9 (hvor 9 er mest ensom). Det er ikke
-                    nødvendigt at have disse oplysninger for at fortsætte med
-                    beregneren. Du kan fortsætte uden ved at trykke på ”spring
-                    over”. Vi opfordrer dig derfor til at holde dig til de
-                    interventionstyper, der er angivet og læse forholdsreglerne
-                    i informationsikonet.
+                    Hvis du har pålidelige data, såsom før-og-efter-målinger
+                    eller sammenligninger med en kontrolgruppe, bedes du angive
+                    dem som input. Disse data kan bruges til at angive effekten
+                    af din intervention ved at måle reduktionen på
+                    UCLA-3-skalaen. Det er ikke påkrævet at have disse data for
+                    at bruge beregneren. Hvis du ikke har dataene, kan du
+                    fortsætte ved at trykke på "spring over". Vi anbefaler, at
+                    du holder dig til de interventionstyper, der er angivet i
+                    begyndelsen, og læser forholdsreglerne i informationsikonet
                   </p>
                   <div class="mb-3">
                     <div class="form-label">
                       <label for="EffectSize"
-                        >Effektstørrelse (UCLA-3-skala)</label
-                      >
+                        >Effektstørrelse (UCLA-3-skala)
+                      </label>
                       <button
-                        onclick="openKnowledgeBase('https://ensomhedital.webflow.io/knowledge')"
+                        onclick="openKnowledgeBase('https://ensomhedital.webflow.io/metode')"
                         tabindex="-1"
                         class="btn"
                         type="button"
@@ -510,7 +509,7 @@
                 steps.children()[tabindex].classList.add("active");
               }
               faneElements[tabindex].style.display = "block";
-              window.parent.scrollTo(0,0)
+              window.parent.scrollTo(0, 0);
             }
           } else {
             alert(validation.message);
@@ -540,7 +539,7 @@
           $("#nextBtn").show();
           $("#submit").hide();
           faneElements[tabindex].style.display = "block";
-          window.parent.scrollTo(0,0)
+          window.parent.scrollTo(0, 0);
         });
         const validate = (currentTab) => {
           const inputFields = $(currentTab).find(".field");
