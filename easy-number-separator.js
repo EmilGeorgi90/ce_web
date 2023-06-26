@@ -37,6 +37,7 @@ function easyNumberSeparator(config) {
 
   function listenFields() {
     document.querySelectorAll(obj.selector).forEach(function (el) {
+      console.log(obj)
       el.addEventListener("input", function (e) {
         const reg = new RegExp(
           `^-?\\d*[${obj.separator}${obj.decimalSeparator}]?(\\d{0,3}${obj.separator})*(\\d{3}${obj.separator})?\\d{0,3}$`

@@ -220,17 +220,13 @@
                     </div>
                     <input
                       type="text"
-                      min="1"
                       class="form-control field number-separator"
-                      id=""
                       placeholder="Estimerede omkostninger"
                     />
                     <input
-                      type="number"
-                      min="1"
-                      class="form-control field number-separator hidden"
+                      type="text"
+                      class="form-control field hidden"
                       id="Total-cost-of-intervention"
-                      placeholder="Anslåede interventionsomkostninger"
                     />
                   </div>
                 </div>
@@ -470,6 +466,8 @@
           this.dispatchEvent("log", a);
         },
       };
+    </script>
+    <script>
       $(document).ready(() => {
         const url = "https://api.ensomhedital.dk/api/report?";
         let tabindex = 0;
@@ -602,11 +600,12 @@
         window.parent.location.href = "https://ensomhedital.webflow.io/";
       });
     </script>
-    <script src="easy-number-separator.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/amiryxe/easy-number-separator/easy-number-separator.js"></script>
     <script>
       easyNumberSeparator({
         selector: ".number-separator",
-        separator: ".",
+        separator: ",",
+        decimalSeparator: ".",
         resultInput: "#Total-cost-of-intervention",
       });
     </script>
