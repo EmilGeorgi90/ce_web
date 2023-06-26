@@ -198,7 +198,7 @@
                       min="1"
                       class="form-control field"
                       id="NumberOfParticipants"
-                      placeholder="Anslåede interventionsomkostninger"
+                      placeholder="Antal deltagere"
                     />
                   </div>
                   <div class="mb-3">
@@ -240,16 +240,14 @@
                     af din ensomhedsintervention?
                   </p>
                   <p class="form-text-custom">
-                    Angiv kun input, hvis du har pålidelige data, f.eks. baseret
-                    på før-efter-undersøgelsesbevis og/eller sammenligninger med
-                    en kontrolgruppe. Du kan angive virkningen af din
-                    intervention i form af gennemsnitlig reduktion på
-                    UCLA-skalaen, der spænder fra 3 til 9 (hvor 9 er mest
-                    ensom). Det er ikke nødvendigt at have disse oplysninger for
-                    at fortsætte med værktøjet. Du kan fortsætte uden det, og vi
-                    opfordrer dig derfor til at holde dig til de
-                    interventionstyper, der er angivet før, hvis det er
-                    relevant, og læse forholdsreglerne i informationsikonet.
+                    Angiv kun input, hvis du har pålidelige data, f.eks. baseret på før-efter-
+                    målinger og/eller sammenligninger med en kontrolgruppe. Du kan angive 
+                    virkningen af din intervention i form af gennemsnitlig reduktion på UCLA-3 
+                    skalaen, der spænder fra 3 til 9 (hvor 9 er mest ensom). Det er ikke nødvendigt
+                    at have disse oplysninger for at fortsætte med beregneren. Du kan fortsætte 
+                    uden ved at trykke på ”spring over”. Vi opfordrer dig derfor til at holde dig til 
+                    de interventionstyper, der er angivet og læse forholdsreglerne i 
+                    informationsikonet.
                   </p>
                   <div class="mb-3">
                     <div class="form-label">
@@ -377,6 +375,14 @@
                   >
                     Næste
                   </button>
+                  <button
+                  type="button"
+                  id="submit"
+                  class="button btn nextBtn hidden"
+                  style="background: #266ed3; color: #ffffff"
+                >
+                  Send
+                </button>
                 </div>
                 <div id="message" class="hidden">
                   <p class="form-title">Tjek din indbakke!</p>
@@ -474,7 +480,8 @@
         });
         $(".nextBtn").click(() => {
           if (tabindex == 2) {
-            $("#nextBtn").text("Submit");
+            $("#nextBtn").hide();
+            $('#submit').show();
           }
           var validation = validate(faneElements[tabindex]);
           if (validation.success) {
@@ -526,7 +533,8 @@
           } else {
             steps.children()[tabindex].classList.add("active");
           }
-          $("#nextBtn").text("Next");
+          $("#nextBtn").show();
+          $('#submit').hide();
           faneElements[tabindex].style.display = "block";
         });
         const validate = (currentTab) => {
@@ -567,12 +575,19 @@
           const email = document.getElementById("Email").value;
           const lang = Weglot.getCurrentLang();
           const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${populationType}&interventionType=${interventionType}&email=${email}&effectScale=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang.toUpperCase()}`;
+          try {
           fetch(request, {
             method: "GET",
             mode: "no-cors",
           }).then((res) => {
             console.log(res);
+          }).catch((err) => {
+            console.error(err)
           });
+        }
+        catch (error) {
+          console.log(error)
+        }
         }
       });
     </script>
