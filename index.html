@@ -196,6 +196,7 @@
                     <input
                       type="number"
                       min="1"
+                      oninput="validity.valid||(value='');"
                       class="form-control field"
                       id="NumberOfParticipants"
                       placeholder="Antal deltagere"
@@ -221,6 +222,7 @@
                     <input
                       type="text"
                       class="form-control field number-separator"
+                      onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))"
                       placeholder="Estimerede omkostninger"
                     />
                     <input
@@ -277,6 +279,7 @@
                       id="EffectSize"
                       placeholder="Effektstørrelse (UCLA-3-skala)"
                       value=""
+                      oninput="validity.valid||(value='');"
                       onchange="validate()"
                     />
                     <div class="invalid-feedback" id="EffectSize-invalid">
@@ -507,6 +510,7 @@
                 steps.children()[tabindex].classList.add("active");
               }
               faneElements[tabindex].style.display = "block";
+              window.parent.scrollTo(0,0)
             }
           } else {
             alert(validation.message);
@@ -536,6 +540,7 @@
           $("#nextBtn").show();
           $("#submit").hide();
           faneElements[tabindex].style.display = "block";
+          window.parent.scrollTo(0,0)
         });
         const validate = (currentTab) => {
           const inputFields = $(currentTab).find(".field");
