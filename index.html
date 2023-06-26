@@ -138,8 +138,8 @@
                       </option>
                       <option value="4">Psykologisk behandling</option>
                       <option value="5">
-                        Anden interventionstype (forudsætter gennemsnitlig
-                        interventionseffektivitet)
+                        Anden interventionstype (anvender gennemsnitlig
+                        effektstørrelse blandt interventionstyperne)
                       </option>
                     </select>
                   </div>
@@ -240,14 +240,16 @@
                     af din ensomhedsintervention?
                   </p>
                   <p class="form-text-custom">
-                    Angiv kun input, hvis du har pålidelige data, f.eks. baseret på før-efter-
-                    målinger og/eller sammenligninger med en kontrolgruppe. Du kan angive 
-                    virkningen af din intervention i form af gennemsnitlig reduktion på UCLA-3 
-                    skalaen, der spænder fra 3 til 9 (hvor 9 er mest ensom). Det er ikke nødvendigt
-                    at have disse oplysninger for at fortsætte med beregneren. Du kan fortsætte 
-                    uden ved at trykke på ”spring over”. Vi opfordrer dig derfor til at holde dig til 
-                    de interventionstyper, der er angivet og læse forholdsreglerne i 
-                    informationsikonet.
+                    Angiv kun input, hvis du har pålidelige data, f.eks. baseret
+                    på før-efter- målinger og/eller sammenligninger med en
+                    kontrolgruppe. Du kan angive virkningen af din intervention
+                    i form af gennemsnitlig reduktion på UCLA-3 skalaen, der
+                    spænder fra 3 til 9 (hvor 9 er mest ensom). Det er ikke
+                    nødvendigt at have disse oplysninger for at fortsætte med
+                    beregneren. Du kan fortsætte uden ved at trykke på ”spring
+                    over”. Vi opfordrer dig derfor til at holde dig til de
+                    interventionstyper, der er angivet og læse forholdsreglerne
+                    i informationsikonet.
                   </p>
                   <div class="mb-3">
                     <div class="form-label">
@@ -376,13 +378,13 @@
                     Næste
                   </button>
                   <button
-                  type="button"
-                  id="submit"
-                  class="button btn nextBtn hidden"
-                  style="background: #266ed3; color: #ffffff"
-                >
-                  Send
-                </button>
+                    type="button"
+                    id="submit"
+                    class="button btn nextBtn hidden"
+                    style="background: #266ed3; color: #ffffff"
+                  >
+                    Send
+                  </button>
                 </div>
                 <div id="message" class="hidden">
                   <p class="form-title">Tjek din indbakke!</p>
@@ -481,7 +483,7 @@
         $(".nextBtn").click(() => {
           if (tabindex == 2) {
             $("#nextBtn").hide();
-            $('#submit').show();
+            $("#submit").show();
           }
           var validation = validate(faneElements[tabindex]);
           if (validation.success) {
@@ -534,7 +536,7 @@
             steps.children()[tabindex].classList.add("active");
           }
           $("#nextBtn").show();
-          $('#submit').hide();
+          $("#submit").hide();
           faneElements[tabindex].style.display = "block";
         });
         const validate = (currentTab) => {
@@ -557,7 +559,8 @@
         };
         function submit(form) {
           const projectName = document.getElementById("ProjectName").value;
-          const populationType = document.getElementById('TargetAudience').value 
+          const populationType =
+            document.getElementById("TargetAudience").value;
           const interventionType =
             document.getElementById("InterventionType").value;
           const numberOfParticipants = document.getElementById(
@@ -567,27 +570,30 @@
             "Total-cost-of-intervention"
           ).value;
           let effectSize = document.getElementById("EffectSize").value;
-          if(effectSize == undefined || effectSize == '' || effectSize == null) effectSize = 1;
+          if (effectSize == undefined || effectSize == "" || effectSize == null)
+            effectSize = 1;
           const organisationName =
             document.getElementById("OrganisationName").value;
           const organisationType =
-            document.getElementById("OrganisationType").value;populationType
+            document.getElementById("OrganisationType").value;
+          populationType;
           const email = document.getElementById("Email").value;
           const lang = Weglot.getCurrentLang();
           const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${populationType}&interventionType=${interventionType}&email=${email}&effectScale=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang.toUpperCase()}`;
           try {
-          fetch(request, {
-            method: "GET",
-            mode: "no-cors",
-          }).then((res) => {
-            console.log(res);
-          }).catch((err) => {
-            console.error(err)
-          });
-        }
-        catch (error) {
-          console.log(error)
-        }
+            fetch(request, {
+              method: "GET",
+              mode: "no-cors",
+            })
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          } catch (error) {
+            console.log(error);
+          }
         }
       });
     </script>
