@@ -549,6 +549,7 @@
         };
         function submit(form) {
           const projectName = document.getElementById("ProjectName").value;
+          const populationType = document.getElementById('TargetAudience').value 
           const interventionType =
             document.getElementById("InterventionType").value;
           const numberOfParticipants = document.getElementById(
@@ -562,10 +563,10 @@
           const organisationName =
             document.getElementById("OrganisationName").value;
           const organisationType =
-            document.getElementById("OrganisationType").value;
+            document.getElementById("OrganisationType").value;populationType
           const email = document.getElementById("Email").value;
           const lang = Weglot.getCurrentLang();
-          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${organisationType}&interventionType=${interventionType}&email=${email}&effectScale=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang.toUpperCase()}`;
+          const request = `${url}totalParticipant=${numberOfParticipants}&interventionCosts=${totalCostOfIntervention}&populationType=${populationType}&interventionType=${interventionType}&email=${email}&effectScale=${effectSize}&organisationType=${organisationType}&projectName=${projectName}&organisationName=${organisationName}&lang=${lang.toUpperCase()}`;
           fetch(request, {
             method: "GET",
             mode: "no-cors",
