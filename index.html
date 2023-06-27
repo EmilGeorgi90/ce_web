@@ -137,7 +137,7 @@
                         Træning i sociale og følelsesmæssige færdigheder
                       </option>
                       <option value="4">Psykologisk behandling</option>
-                      <option value="5">Uspecificeret</option>
+                      <!-- <option value="5">Uspecificeret</option> -->
                       <option value="6">
                         Anden interventionstype (anvender gennemsnitlig
                         effektstørrelse blandt interventionstyperne)
@@ -426,7 +426,9 @@
     <script>
       function validate() {
         const value = document.getElementById("EffectSize").value;
-        if (value > 3 || value == 0) {
+        const interventionType =
+            document.getElementById("InterventionType").value;
+        if (value > 3 || value == 0 || (interventionType == 6 && value == 0) || (interventionType == 6 && value == '')|| (interventionType == 6 && value == null)) {
           document.getElementById("nextBtn").style.display = "none";
           document.getElementById("EffectSize-invalid").style.display = "block";
         } else {
@@ -516,7 +518,13 @@
             alert(validation.message);
           }
         });
+        $("#idkBtn").click(() => { location.reload();});
         $("#prevBtn").click(() => {
+          if (tabindex == 2){
+          $('#EffectSize').val('');
+          $("#message").hide();
+          document.getElementById("EffectSize-invalid").style.display = "none";
+          }
           if (tabindex == 0) {
             window.parent.location = "https://ensomhedital.webflow.io/";
           }
@@ -549,12 +557,23 @@
               break;
             }
             if (inputFields[i].id == "EffectSize") {
-              break;
+              const value = document.getElementById("EffectSize").value;
+              const interventionType =
+                  document.getElementById("InterventionType").value;
+              if ((interventionType == 6 && value == 0) || (interventionType == 6 && value == '') || (interventionType == 6 && value == null)) {
+                document.getElementById("EffectSize-invalid").style.display = "block";
+                $("#nextBtn").hide();
+                $("#submit").hide();
+                return { success: false };
+              } else {
+                document.getElementById("EffectSize-invalid").style.display = "none";
+                break;
+              }
             }
-            if (inputFields[i].value == "") {
+            if (inputFields[i].value == "" && inputFields[i].id != "EffectSize") {
               return { success: false, message: "values can't be empty" };
             }
-            if (inputFields[i].type == "number" && inputFields[i].value == 0) {
+            if (inputFields[i].type == "number" && inputFields[i].value == 0 && inputFields[i].id != "EffectSize") {
               return { success: false, message: "values can't be 0" };
             }
           }
@@ -574,7 +593,7 @@
           ).value;
           let effectSize = document.getElementById("EffectSize").value;
           if (effectSize == undefined || effectSize == "" || effectSize == null)
-            effectSize = 1;
+            effectSize = 0;
           const organisationName =
             document.getElementById("OrganisationName").value;
           const organisationType =
