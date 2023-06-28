@@ -525,7 +525,7 @@
           }
         });
         $("#idkBtn").click(() => {
-          $('#EffectSize').val(0)
+          $("#EffectSize").val(0);
         });
         $("#prevBtn").click(() => {
           if (tabindex == 2) {
@@ -564,31 +564,6 @@
           for (let i = 0; i < inputFields.length; i++) {
             if (inputFields[i].id == "" || inputFields[i].id == undefined) {
               break;
-            }
-            if (inputFields[i].id == "EffectSize") {
-              const value = document.getElementById("EffectSize").value;
-              const interventionType =
-                document.getElementById("InterventionType").value;
-              if (
-                (interventionType == 6 && value == 0) ||
-                (interventionType == 6 && value == "") ||
-                (interventionType == 6 && value == null)
-              ) {
-                (
-                (interventionType == 6 && value == 0) ||
-                (interventionType == 6 && value == "") ||
-                (interventionType == 6 && value == null)
-              ) ? document.getElementById("EffectSize-invalid").innerText = "Du skal indtaste et tal mellem 0.01 og 3" : document.getElementById("EffectSize-invalid").innerText = "Værdien skal være mellem 0,01 og 3"
-                document.getElementById("EffectSize-invalid").style.display =
-                  "block";
-                $("#nextBtn").hide();
-                $("#submit").hide();
-                return { success: false };
-              } else {
-                document.getElementById("EffectSize-invalid").style.display =
-                  "none";
-                break;
-              }
             }
             if (
               inputFields[i].value == "" &&
