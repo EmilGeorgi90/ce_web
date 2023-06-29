@@ -228,7 +228,6 @@
     >
     <style>
       * {
-        display: block;
         font-family: "Inter", serif;
         font-style: normal;
         font-weight: 400;
@@ -422,10 +421,12 @@
           <span class="varContainerText">@Model.ExportType</span>
         </div>
       </div>
-      <div>
+      <div style="    margin: 0 auto;
+      text-align: center;
+      width: 80%;">
         <span class="text"> The link expires in 2 days </span>
       </div>
-      <div>
+      <div style="display: flex">
           <a href="@Model.Url" class="btn" style="appearance: auto;
           text-rendering: auto;
           letter-spacing: normal;
