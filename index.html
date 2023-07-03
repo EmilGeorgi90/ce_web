@@ -141,7 +141,7 @@
                         Anden interventionstype (anvender gennemsnitlig
                         effektstørrelse blandt interventionstyperne)
                       </option>
-                      <option value="6">Egen</option>
+                      <!-- <option value="6">Egen</option> -->
                     </select>
                   </div>
                   <div class="">
@@ -525,7 +525,8 @@
           }
         });
         $("#idkBtn").click(() => {
-          $("#EffectSize").val(0);
+          $("#EffectSize").val("0");
+          effectSize = 0
         });
         $("#prevBtn").click(() => {
           if (tabindex == 2) {
